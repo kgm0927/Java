@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="src/factory/Factory.java"/>
+	<classpathentry kind="lib" path="src/factory/Item.java"/>
+	<classpathentry kind="lib" path="src/factory/Link.java"/>
+	<classpathentry kind="lib" path="src/factory/Page.java"/>
+	<classpathentry kind="lib" path="src/factory/Tray.java"/>
+	<classpathentry kind="lib" path="src/listfactory/ListFactory.java"/>
+	<classpathentry kind="lib" path="src/listfactory/ListLink.java"/>
+	<classpathentry kind="lib" path="src/listfactory/ListPage.java"/>
+	<classpathentry kind="lib" path="src/listfactory/ListTray.java"/>
+	<classpathentry kind="lib" path="src/divfactory/DivFactory.java"/>
+	<classpathentry kind="lib" path="src/divfactory/DivLink.java"/>
+	<classpathentry kind="lib" path="src/divfactory/DivPage.java"/>
+	<classpathentry kind="lib" path="src/divfactory/DivTray.java"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

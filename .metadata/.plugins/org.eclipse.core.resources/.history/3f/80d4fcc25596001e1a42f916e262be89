@@ -1,0 +1,189 @@
+
+import command.*;
+import drawer.*;
+
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+
+public class Main extends JFrame implements MouseMotionListener, WindowListener{
+
+	int index;
+	int color_num[];
+	int color_num_index;
+	// 그리기 이력
+	private MarcoCommand history=new MarcoCommand();
+	// 그리는 영역
+	private DrawCanvas canvas=new DrawCanvas(400,400,history);
+	// 삭제 버튼
+	private JButton clearButton=new JButton("clear");
+	
+	String color_array[]={"Red","Green","Blue","Black","White"};
+	
+
+	
+	private JComboBox<String> jbox=new JComboBox<String>(color_array);
+	
+	// 생성자
+	public Main(String title){
+		super(title);
+		
+		this.addWindowListener(this);
+		canvas.addMouseMotionListener(this);
+		clearButton.addActionListener(e->{
+			history.clear();
+			canvas.init();
+			canvas.repaint();
+		});
+		
+
+		
+		Box buttonBox=new Box(BoxLayout.X_AXIS);
+		buttonBox.add(clearButton);
+		buttonBox.add(jbox);
+		
+		Box mainBox=new Box(BoxLayout.Y_AXIS);
+		mainBox.add(buttonBox);
+		mainBox.add(canvas);
+		
+		jbox.addActionListener(new ActionListener() {
+			
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		    	
+		        JComboBox<String> c = (JComboBox<String>) e.getSource();
+		        index = c.getSelectedIndex();
+		        Color selectedColor;
+		        
+		        Command cmd = new SetColor(canvas, selectedColor);
+	             history.append(cmd); // Uncomment this line if history is properly defined
+	            cmd.execute();
+	       
+	            
+	            
+		        
+		        if (index >= 0) {
+		    
+		            switch (index) {
+		                case 0:
+		              
+		                    selectedColor = Color.RED;
+		                    break;
+		                case 1:
+		             
+		                    selectedColor = Color.GREEN;
+		                    break;
+		                case 2:
+		                
+		                    selectedColor = Color.BLUE;
+		                    break;
+		                case 3:
+		                
+		                    selectedColor = Color.BLACK;
+		                    break;
+		                case 4:
+		                
+		                    selectedColor = Color.WHITE;
+		                    break;
+		                default:
+		                	
+		                    selectedColor = Color.BLACK; // Set a default color in case of unexpected index
+		                    break;
+		            }
+		        
+		        
+
+		        // Define history object or check its instantiation before using history.append(cmd);
+
+		     
+
+		       
+		            
+		        }
+		    }
+		});
+		
+		
+		getContentPane().add(mainBox);
+		
+		pack();
+		setVisible(true);
+		
+	}
+	
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}	
+	@Override
+	public void mouseDragged(MouseEvent e) {
+		// TODO Auto-generated method stub
+		Command cmd=new DrawCommand(canvas,e.getPoint());
+		history.append(cmd);
+		cmd.execute();
+		
+	}
+	
+	// WindowListener 용
+	@Override
+	public void windowOpened(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowClosing(WindowEvent e) {
+		// TODO Auto-generated method stub
+		System.exit(0);
+	}
+
+	@Override
+	public void windowClosed(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowIconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowActivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowDeactivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
+	
+	public static void main(String[] args){
+		new Main("Command Pattern Sample");
+	}
+
+}
+

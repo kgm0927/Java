@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 2 elements to &apos;Part_6_prototype/src/Part_6_2&apos;&#x0D;&#x0A;- Original project: &apos;Part_6_prototype&apos;&#x0D;&#x0A;- Destination element: &apos;Part_6_prototype/src/Part_6_2&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     Main.MessageBox.java&#x0D;&#x0A;     Main.UnderlinePen.java" description="Copy compilation units" destination="/src&lt;Part_6_2" element1="/src&lt;Main{MessageBox.java" element2="/src&lt;Main{UnderlinePen.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1697687120134" units="2" version="1.0"/>
+</session>
